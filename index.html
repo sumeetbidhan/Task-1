@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Member Team Page</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./logo.jpeg">
+
+    <style>
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            display: inline;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6; /* Light pink background color */
+            opacity: 0; /* Set initial opacity to 0 */
+            animation: slideIn 3.5s ease-out forwards; /* Apply the keyframe animation */
+
+
+            background-image: url(background.png); 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-position: center; 
+           
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1; /* Set the final opacity to 1 */
+            }
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 150px;
+            margin-bottom: 175px;
+        }
+        #logo {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.7s ease;
+        }
+
+        #logo:hover{
+            transform: scale(1.5);
+            
+        }
+        
+        a {
+             text-decoration: none; /* Remove underline */
+              color: inherit; /* Inherit color from parent, or set your preferred color */
+        }
+
+
+
+        #company-name {
+            background-color: #ff66b2; /* Pink color for the company name button */
+            color: #fff;
+            padding: 20px 40px;
+            border-radius: 20px;
+            margin-top: 20px;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.7s ease;
+            display: inline-block; /* Make it an inline block to adjust button size to content */
+            text-align: center; /* Center the text within the button */
+            text-decoration: none; /* Remove default underline for anchor tag */
+           
+        }
+
+
+
+        #company-name:hover {
+            transform: scale(1.1);
+            color: black;
+            background-color: #ff3385; /* Change to your preferred hover color */
+         }
+
+
+
+
+        
+
+        #company-description {
+            margin: 20px 0;
+            text-align: justify;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
+
+        #divider {
+            width: 80%;
+            border-top: 5px dashed #ff66b2; /* Pink color for the dashed line */
+            margin: 20px 0;
+        }
+
+        #team-header {
+            font-weight: bold;
+            font-size: 25px;
+            margin-top: 50px;
+            margin-bottom: 60px;
+            cursor: pointer;
+            transition: color 0.5s ease;
+        }
+
+        #team-header:hover{
+            color: #ff3385;
+        }
+
+
+
+        #leadership-button {
+            background-color: #ff66b2; /* Pink color for the leadership button */
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 15px;
+            margin-top: 35px;
+            cursor: pointer;
+            transition: transform 0.7s ease;
+
+        }
+
+
+        #founder-container,
+        #vp-container,
+        #development-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 70px;
+            margin-bottom: 30px;
+          
+          
+        }
+
+        #development-container {
+            margin: 40px;
+
+        }
+
+        .person, .developer {
+            width: 120px;
+            height: 120px;
+            border-radius: 25%;
+            margin: 25px;
+            background-color: #ccc; /* Grey background for the person images */
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .person:hover, .developer:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease; /* Add a smooth transition for a better effect */
+}
+
+
+
+        .person img, .developer img{
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+
+            
+        }
+
+        .person img:hover, .developer img:hover {
+    filter: saturate(200%);
+    transition: filter 0.3s ease; /* Add a smooth transition for a better effect */
+}
+
+        .person-details, .developer-details {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          background-color: rgba(97, 86, 86, 0.8);
+          padding: 1px;
+          color: #fff;
+        }
+
+        .person-details p, .developer-details p {
+            margin: 0; /* Remove default margin for the <p> element */
+            font-size: 12px; /* Adjust font size as needed */
+        }
+
+        .color-text {
+            color: pink;
+        }
+
+
+        #development-button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 35px;
+            padding: 0 20px;
+
+        }
+        .icon {
+          margin-right: auto;
+}
+
+        #development-button {
+
+            background-color: #ff66b2; /* Pink color for the development button */
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 15px;
+            margin-top: 20px;
+            transition: transform 0.7s ease;
+            cursor: pointer;
+
+            
+            
+        }
+
+
+        #sales-button
+        {
+            background-color: #ff66b2; /* Pink color for the development button */
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 15px;
+            margin-top: 60px;
+            transition: transform 0.7s ease;
+            cursor: pointer;
+        }
+
+        #developer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        #leadership-button:hover,
+        #development-button:hover,
+        #sales-button:hover {
+            background-color: #ff3385; /* Change to your preferred hover color */
+            color: #fff; /* Change to your preferred hover text color */
+            transform: scale(1.1); /* Increase size on hover */
+        }
+
+
+
+        .developer {
+            width: 100px;
+            height: 100px;
+            border-radius: 25%;
+            margin: 10px;
+            background-color: #ccc; /* Grey background for the developer images */
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .developer img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        
+
+        @media screen and (max-width: 600px) {
+            /* Add styles specific to small screens here */
+            body {
+                margin-top: 50px; /* Adjust margin for smaller screens */
+            }
+
+            #container {
+                margin-top: 50px; /* Adjust margin for smaller screens */
+                margin-bottom: 50px; /* Adjust margin for smaller screens */
+            }
+
+            #company-name {
+                padding: 15px 30px; /* Adjust padding for smaller screens */
+                font-size: 20px; /* Adjust font size for smaller screens */
+            }
+
+            #company-description {
+                max-width: 75%; /* Allow text to take full width on smaller screens */
+            }
+
+            #founder-container,
+            #vp-container,
+            #development-container {
+                margin-top: 30px; /* Adjust margin for smaller screens */
+                margin-bottom: 30px; /* Adjust margin for smaller screens */
+            }
+
+            .person,
+            .developer {
+                width: 80px; /* Adjust width for smaller screens */
+                height: 80px; /* Adjust height for smaller screens */
+                margin: 15px; /* Adjust margin for smaller screens */
+            }
+
+            #development-button,
+            #sales-button,
+            #leadership-button {
+                padding: 10px 20px; /* Adjust padding for smaller screens */
+                font-size: 16px; /* Adjust font size for smaller screens */
+            }
+
+            #development-container {
+                margin: 20px; /* Adjust margin for smaller screens */
+            }
+        }        
+    </style>
+</head>
+<body>
+    <header>
+        <a href="https://www.linkedin.com/company/veritech-software-services-pvt-ltd/about/" target="_blank">
+            <img id="logo" src="logo.jpeg" alt="Company Logo">
+        </a>
+    </header>
+    <div id="container">
+
+
+        <a href="https://www.linkedin.com/company/veritech-software-services-pvt-ltd/about/" target="_blank">
+        <div id="company-name">VeriTech</div>
+        </a>
+    
+        <div id="company-description">
+            <p>Veritech Software Services is not just a company; we are a community of passionate professionals dedicated to fostering the next generation of developers. Our virtual internship programs cover a diverse range of development fields. We take pride in providing hands-on experience, expert guidance, and comprehensive learning paths to prepare individuals for successful careers in software development.</p>
+        </div>
+        <div id="divider"></div>
+        <div id="team-header"><strong><a href="#leadership-button">Meet Our Team</a></strong></div>
+        <div id="leadership-button"><a href="#leadership-button">Leadership/Management Team </a></div>
+        
+        <div id="founder-container">
+            <div class="person">
+                <img src="vp m.png" alt="Founder 1">
+                <div class="person-details">
+                  <p>Founder 1 <br> <span class="color-text">Founder/CEO</span></p>
+                </div>
+            </div>
+            
+            <div class="person">
+                <img src="founder f.png" alt="Founder 2">
+                <div class="person-details">
+                  <p>Founder 1 <br><span class="color-text">Founder/CEO</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="vp-container">
+            <div class="person">
+                <img src="vp f.png" alt="VP 1">
+                <div class="person-details">
+                  <p>VP Name<br><span class="color-text">VP, Development & Growth</span></p>
+                </div>
+            </div>
+            <div class="person">
+                <img src="founder.png" alt="VP 2">
+                <div class="person-details">
+                  <p>VP Name <br><span class="color-text">VP, Sales & <br> Marketing</span></p>
+                </div>
+            </div>
+            <div class="person">
+                <img src="vp f.png" alt="VP 3">
+                <div class="person-details">
+                  <p>VP Name<br><span class="color-text">VP, Finance & Operation</span></p>
+                </div>
+            </div>
+        </div>
+
+
+        
+
+       
+        <div id="development-button-container">
+          
+
+          <div id="development-button"><a href="#development-button">Development Team</a></div>
+      </div>
+        
+        
+        
+
+        <div id="development-container">
+            <!-- First row of developers -->
+            <div class="developer">
+                <img src="developer f.png" alt="Developer 1">
+                <div class="developer-details">
+                  <p>Developer Name <br><span class="color-text">Team Lead,<br> SE</span></p>
+              </div>
+
+                
+            </div>
+            
+            <div class="developer">
+                <img src="developer f.png" alt="Developer 2">
+                <div class="developer-details">
+                  <p>Developer Name <br><span class="color-text">Software <br> Engineer</span></p>
+              </div>
+              
+            </div>
+            <div class="developer">
+                <img src="developer f.png" alt="Developer 3">
+                <div class="developer-details">
+                  <p>Developer Name <br><span class="color-text">Software <br> Engineer</span></p>
+              </div>
+                
+            </div>
+            <div class="developer">
+                <img src="developer f.png" alt="Developer 4">
+                <div class="developer-details">
+                  <p>Developer Name <br><span class="color-text">Software <br> Engineer </span></p>
+              </div>
+                
+            </div>
+            </div>
+
+            <!-- Second row of developers -->
+            <div id="development-container">
+            <div class="developer">
+                <img src="developer male.png" alt="Developer 5">
+                <div class="developer-details">
+                  <p>Developer Name <br><span class="color-text">Software <br> Engineer </span></p>
+              </div>
+                
+            </div>
+            <div class="developer">
+                <img src="developer male.png" alt="Developer 6">
+                <div class="developer-details">
+                  <p>Developer Name<br><span class="color-text">Software <br> Engineer</span></p>
+              </div>
+              
+            </div>
+            <div class="developer">
+                <img src="developer male.png" alt="Developer 7">
+                <div class="developer-details">
+                  <p>Developer Name<br><span class="color-text">Software <br> Engineer</span></p>
+              </div>
+              
+            </div>
+            </div>
+
+            <div id="sales-button"><a href="#sales-button">Sales and Marketing Team</a></div>
+
+            <div id="development-container">
+                <!-- First row of developers -->
+                <div class="developer">
+                    <img src="sales.png" alt="Developer 1">
+                    <div class="developer-details">
+                      <p>Employee Name<br><span class="color-text">Team Lead</span></p>
+                  </div>
+                   
+                </div>
+                <div class="developer">
+                    <img src="sales.png" alt="Developer 2">
+                    <div class="developer-details">
+                      <p>Employee Name<br><span class="color-text">Sales Officer</span></p>
+                  </div>
+                    
+                </div>
+                <div class="developer">
+                    <img src="sales.png" alt="Developer 3">
+                    <div class="developer-details">
+                      <p>Employee Name<br><span class="color-text">Sales Officer</span></p>
+                  </div>
+                    
+                </div>
+                <div class="developer">
+                    <img src="sales.png" alt="Developer 4">
+                    <div class="developer-details">
+                      <p>Employee Name <br><span class="color-text">Sales Officer</span></p>
+                  </div>
+                   
+                </div>
+                </div>
+            
+                <div id="development-container">
+                    <!-- First row of developers -->
+                    <div class="developer">
+                        <img src="sales male.png" alt="Developer 1">
+                        <div class="developer-details">
+                          <p>Employee Name<br><span class="color-text">Marketing <br> Officer</span></p>
+                      </div>
+                       
+                    </div>
+                    <div class="developer">
+                        <img src="sales male.png" alt="Developer 2">
+                        <div class="developer-details">
+                          <p>Employee Name <br><span class="color-text">Marketing <br> Officer</span></p>
+                      </div>
+                        
+                    </div>
+                    <div class="developer">
+                        <img src="sales male.png" alt="Developer 3">
+                        <div class="developer-details">
+                          <p>Employee Name <br><span class="color-text">Marketing <br> Officer </span></p>
+                      </div>
+                       
+                    </div>
+                  
+                    </div>
+        
+    </div>
+</body>
+</html>
